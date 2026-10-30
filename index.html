@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portfólio de Paola, estudante da área da tecnologia.">
+
+    <title>Paola Dev</title>
+
+     <!-- fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- link do css-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- link do java -->
+    <script src="script.js" defer></script>
+</head>
+
+<body id="topo">
+
+    <!-- Cabeçalho e menu de navegação -->
+
+<header class="cabecalho">
+    <nav class="navegacao" aria-label="Menu principal">
+
+        <a href="#inicio" class="logo">Paola <span>Dev.</span></a>
+
+        <button
+            class="botao-menu"
+            id="botaoMenu"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menuLinks">
+            ☰
+        </button>
+
+        <ul class="menu-links" id="menuLinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Além do código</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        
+<button class="botao-tema" 
+id="botaoTema"
+type="button" aria-label="Alternar modo claro e escuro">🌙</button>
+
+
+    </nav>
+</header>
+
+    <!-- Conteúdo principal -->
+    <main>
+
+        <!-- Seção inicial -->
+        <section class="inicio" id="inicio">
+
+            <div class="inicio-conteudo">
+                <p class="saudacao" id="saudacao">Olá, seja bem-vindo(a)!</p>
+
+                <h1>Meu nome é Paola</h1>
+
+                <h2>Estudante de Desenvolvimento de Sistemas</h2>
+
+                <p>
+                Aprendendo, criando e evoluindo a cada linha de código, meu objetivo é 
+                transformar ideias em experiências digitais.
+                </p>
+
+                <a href="#projetos" class="botao-principal">
+                    Conheça meus projetos
+                </a>
+            </div>
+
+            <div class="foto-perfil">
+                <img src="img/perfil.jpeg" alt="Foto de perfil">
+            </div>
+
+        </section>
+
+        <!-- Seção sobre mim -->
+        <section class="sobre" id="sobre">
+
+            <h2>Sobre mim</h2>
+
+            <p>
+                Sou a Paola e sou estudante da área de tecnologia no SENAC MedTec. Escolhi
+                essa área porque quero aprender a criar sites, desenvolver
+                soluções e entender melhor como a tecnologia funciona.
+            </p>
+
+            <p>
+                Atualmente, estou desenvolvendo minhas habilidades e quero aprender novas
+                tecnologias, desenvolver projetos próprios e ganhar
+                experiência para trabalhar na área de desenvolvimento.
+            </p>
+
+        </section>
+
+        <!-- Seção de habilidades -->
+        <section class="habilidades" id="habilidades">
+
+            <h2>Minhas habilidades</h2>
+
+            <p>
+                Estas são algumas das tecnologias que estou aprendendo
+                durante o curso.
+            </p>
+
+            <div class="habilidades-lista">
+
+                <article class="habilidade-card">
+                    <h3>HTML</h3>
+                    <p>Utilizo para estruturar o conteúdo das páginas.</p>
+                    <span class="nivel">Praticando</span>
+                </article>
+
+                <article class="habilidade-card">
+                    <h3>CSS</h3>
+                    <p>Aprendo a estilizar páginas e organizar layouts.</p>
+                    <span class="nivel">Praticando</span>
+                </article>
+
+                <article class="habilidade-card">
+                    <h3>JavaScript</h3>
+                    <p>Aprendendo a adicionar interatividade aos sites.</p>
+                    <span class="nivel">Praticando</span>
+                </article>
+
+                <article class="habilidade-card">
+                    <h3>Figma</h3>
+                    <p>Utilizo para conhecer protótipos.</p>
+                    <span class="nivel">Iniciante</span>
+                </article>
+
+            </div>
+
+        </section>
+                </article>
+                   
+        <!-- Seção de contato -->
+        <section class="contato" id="contato">
+
+            <h2>Entre em contato</h2>
+
+            <p>
+                Quer conversar sobre tecnologia ou conhecer melhor
+                meus projetos? Envie uma mensagem pelo formulário.
+            </p>
+
+            <form id="formularioContato" novalidate>
+
+                <div class="campo-formulario">
+                    <label for="nome">Nome</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        autocomplete="name"
+                        required>
+
+                    <small class="erro-campo" id="erroNome"></small>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="email">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required>
+
+                    <small class="erro-campo" id="erroEmail"></small>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="mensagem">Mensagem</label>
+
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="5"
+                        placeholder="Escreva sua mensagem"
+                        required></textarea>
+
+                    <small class="erro-campo" id="erroMensagem"></small>
+                </div>
+
+                <div class="campo-consentimento">
+                    <input
+                        type="checkbox"
+                        id="consentimento"
+                        name="consentimento"
+                        required>
+
+                    <label for="consentimento">
+                        Concordo com o uso dos dados informados
+                        para responder à minha mensagem.
+                    </label>
+                </div>
+
+                <small class="erro-campo" id="erroConsentimento"></small>
+
+                <p class="aviso-privacidade">
+                    Os dados serão utilizados apenas para responder
+                    à mensagem. Este formulário é demonstrativo e
+                    não envia informações para um servidor.
+                </p>
+
+                <button type="submit" class="botao-principal">
+                    Enviar mensagem
+                </button>
+
+                <p
+                    class="mensagem-formulario"
+                    id="mensagemFormulario"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+            </form>
+
+            <div class="redes-sociais">
+                <h3>Me encontre também</h3>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+
+        <p>
+            &copy; <span id="anoAtual"></span> Paola.
+            Desenvolvido com dedicação.
+        </p>
+
+        <a href="#topo">Voltar ao topo ↑</a>
+
+    </footer>
+
+</body>
+</html>

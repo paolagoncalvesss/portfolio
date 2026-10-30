@@ -1,0 +1,641 @@
+
+/* ========================================
+   1. VARIÁVEIS E CORES
+======================================== */
+
+:root {
+    --cor-fundo: #faf6f1;
+    --cor-superficie: #fffdfb;
+    --cor-primaria: #d99aab;
+    --cor-primaria-hover: #bd758d;
+    --cor-secundaria: #f0e1d7;
+    --cor-texto: #403331;
+    --cor-texto-suave: #766763;
+    --cor-borda: #e8dcd4;
+    --cor-erro: #b42336;
+    --cor-sucesso: #286b49;
+
+    --fonte-principal: 'Plus Jakarta Sans', sans-serif;
+
+    --sombra: 0 8px 28px rgba(64, 51, 49, 0.07);
+    --transicao: 0.3s ease;
+}
+
+/* ========================================
+   2. CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.7;
+    transition: background-color var(--transicao),
+                color var(--transicao);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    transition: color var(--transicao),
+                background-color var(--transicao),
+                transform var(--transicao);
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-primaria-hover);
+    outline-offset: 4px;
+}
+
+section {
+    padding: 75px 7%;
+    scroll-margin-top: 75px;
+}
+
+section h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+section > p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+    color: var(--cor-texto-suave);
+}
+
+/* ========================================
+   3. CABEÇALHO E MENU
+======================================== */
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.navegacao {
+    min-height: 75px;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--cor-primaria-hover);
+}
+
+.menu-links {
+    display: none;
+    list-style: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.menu-links.ativo {
+    display: flex;
+}
+
+.menu-links a {
+    display: block;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.menu-links a:hover {
+    color: var(--cor-primaria-hover);
+    background-color: var(--cor-fundo);
+}
+
+.botao-menu,
+.botao-tema {
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 1.1rem;
+    transition: background-color var(--transicao),
+                transform var(--transicao);
+}
+
+.botao-menu:hover,
+.botao-tema:hover {
+    background-color: var(--cor-primaria);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   4. INÍCIO
+======================================== */
+
+.inicio {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    text-align: center;
+}
+
+.inicio-conteudo {
+    max-width: 650px;
+}
+
+.saudacao {
+    color: var(--cor-primaria-hover);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.inicio h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.inicio h2 {
+    font-size: clamp(1.05rem, 3vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    margin-bottom: 20px;
+}
+
+.inicio-conteudo > p:not(.saudacao) {
+    color: var(--cor-texto-suave);
+    margin-bottom: 28px;
+}
+
+.foto-perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #e8a0bf;
+    flex-shrink: 0;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+ 
+
+/* ========================================
+   5. BOTÕES
+======================================== */
+
+.botao-principal {
+    display: inline-block;
+    padding: 13px 25px;
+    background-color: var(--cor-primaria);
+    color: #35252b;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--transicao),
+                transform var(--transicao),
+                box-shadow var(--transicao);
+}
+
+.botao-principal:hover {
+    background-color: var(--cor-primaria-hover);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+
+button.botao-principal {
+    width: 100%;
+}
+
+/* ========================================
+   6. SOBRE MIM
+======================================== */ 
+
+.sobre {
+    background-color: var(--cor-secundaria);
+    border-radius: 30px;
+    margin: 20px 5%;
+    padding: 50px 7%;
+}
+
+.sobre h2 {
+    margin-bottom: 25px;
+}
+
+.sobre p {
+    max-width: 800px;
+    margin: 0 auto 18px;
+    text-align: left;
+    color: var(--cor-texto);
+}
+
+
+/* ========================================
+   7. HABILIDADES
+======================================== */
+
+.habilidades-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 35px auto 0;
+}
+
+.habilidade-card {
+    padding: 25px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    transition: transform var(--transicao),
+                box-shadow var(--transicao);
+}
+
+.habilidade-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(64, 51, 49, 0.11);
+}
+
+.habilidade-card h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.4px;
+    color: var(--cor-primaria-hover);
+}
+
+.habilidade-card p {
+    color: var(--cor-texto-suave);
+    font-size: 0.92rem;
+    margin-bottom: 15px;
+}
+
+.nivel {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ========================================
+   9. CONTATO E FORMULÁRIO
+======================================== */
+
+.contato form {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 13px;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 11px;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+    border-color: var(--cor-primaria-hover);
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.campo-formulario input::placeholder,
+.campo-formulario textarea::placeholder {
+    color: var(--cor-texto-suave);
+    opacity: 0.85;
+}
+
+.campo-consentimento {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.campo-consentimento input {
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+    accent-color: var(--cor-primaria-hover);
+    flex-shrink: 0;
+}
+
+.campo-consentimento label {
+    font-size: 0.87rem;
+}
+
+.aviso-privacidade {
+    margin: 15px 0 20px;
+    font-size: 0.82rem;
+    color: var(--cor-texto-suave);
+}
+
+.erro-campo {
+    display: block;
+    margin-top: 5px;
+    color: var(--cor-erro);
+    font-size: 0.82rem;
+}
+
+.mensagem-formulario {
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.redes-sociais {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.redes-sociais h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.redes-sociais a {
+    display: inline-block;
+    margin: 5px;
+    padding: 9px 17px;
+    color: var(--cor-texto);
+    background-color: var(--cor-secundaria);
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.redes-sociais a:hover {
+    color: #ffffff;
+    background-color: var(--cor-primaria-hover);
+}
+
+/* ========================================
+   10. RODAPÉ
+======================================== */
+
+.rodape {
+    padding: 28px 7%;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+}
+
+.rodape p {
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+}
+
+.rodape a {
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.rodape a:hover {
+    color: var(--cor-primaria-hover);
+    text-decoration: underline;
+}
+
+
+/* MODO ESCURO */
+body.modo-escuro {
+    --cor-fundo: #211d24;
+    --cor-superficie: #302832;
+    --cor-primaria: #d99aab;
+    --cor-primaria-hover: #edb3c2;
+    --cor-secundaria: #382e38;
+    --cor-texto: #f8edf2;
+    --cor-texto-suave: #d0c0ca;
+    --cor-borda: #514451;
+}
+
+body.modo-escuro {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+body.modo-escuro section,
+body.modo-escuro .cabecalho,
+body.modo-escuro footer {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+body.modo-escuro .sobre {
+    background-color: var(--cor-secundaria);
+}
+
+body.modo-escuro .card-projeto {
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+    border-color: var(--cor-borda);
+}
+
+body.modo-escuro p,
+body.modo-escuro h1,
+body.modo-escuro h2,
+body.modo-escuro h3,
+body.modo-escuro a {
+    color: var(--cor-texto);
+}
+
+
+/* ========================================
+   12. TABLETS - A PARTIR DE 768px
+======================================== */
+
+@media (min-width: 768px) {
+
+    section {
+        padding: 90px 8%;
+    }
+
+    .navegacao {
+        flex-wrap: nowrap;
+    }
+
+    .botao-menu {
+        display: none;
+    }
+
+    .menu-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: auto;
+        padding: 0;
+        gap: 4px;
+    }
+
+    .menu-links a {
+        padding: 8px;
+    }
+
+    .inicio {
+        flex-direction: row;
+        text-align: left;
+        gap: 50px;
+    }
+
+    .inicio-imagem img {
+        width: 260px;
+        height: 260px;
+    }
+
+    .habilidades-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projetos-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contato form {
+        padding: 35px;
+    }
+}
+
+/* ========================================
+   13. DESKTOP - A PARTIR DE 1024px
+======================================== */
+
+@media (min-width: 1024px) {
+
+    .navegacao {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .menu-links {
+        gap: 12px;
+    }
+
+    .inicio {
+        min-height: 85vh;
+        gap: 80px;
+    }
+
+    .inicio-imagem img {
+        width: 310px;
+        height: 310px;
+    }
+
+    .habilidades-lista {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .projetos-lista {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projeto-card > img {
+        height: 210px;
+    }
+}
+
+/* ========================================
+   14. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
